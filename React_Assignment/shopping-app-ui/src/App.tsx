@@ -68,16 +68,18 @@ const App: React.FC = () => {
                           {quantity} = {formatMoney(lineSubtotalPence)}
                         </div>
                         {savingsPence > 0 && (
-                          <div className="basket-row-meta">
-                            <span>Savings</span>
-                            <span className="savings">
+                          <div className="basket-row-meta basket-row-meta-savings">
+                            <span className="savings-label">Savings</span>
+                            <span className="savings-value">
                               {formatMoney(savingsPence)}
                             </span>
                           </div>
                         )}
-                        <div className="basket-row-meta">
-                          <span>Item cost</span>
-                          <span>{formatMoney(lineTotalPence)}</span>
+                        <div className="basket-row-meta basket-row-meta-itemcost">
+                          <span className="itemcost-label">Item cost</span>
+                          <span className="itemcost-value">
+                            {formatMoney(lineTotalPence)}
+                          </span>
                         </div>
                       </div>
                       <div className="basket-row-qty">
