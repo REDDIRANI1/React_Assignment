@@ -20,7 +20,7 @@ const App: React.FC = () => {
         <h1>Shopping Basket</h1>
       </header>
       <main className="app-main">
-        <section className="panel">
+        <section className="panel panel-left">
           <h2>Products</h2>
           <ul className="list">
             {PRODUCTS.map((product) => (
@@ -32,7 +32,7 @@ const App: React.FC = () => {
                   </div>
                 </div>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-add"
                   onClick={() => dispatch(addItem(product.id))}
                 >
                   Add
@@ -41,7 +41,7 @@ const App: React.FC = () => {
             ))}
           </ul>
         </section>
-        <section className="panel">
+        <section className="panel panel-right">
           <h2>Basket</h2>
           {basketItems.length === 0 ? (
             <p className="muted">Your basket is empty.</p>
@@ -81,7 +81,7 @@ const App: React.FC = () => {
 
           <div className="totals">
             <div className="totals-row">
-              <span>Sub total:</span>
+              <span>Sub Total:</span>
               <span>{formatMoney(summary.subtotalPence)}</span>
             </div>
             <div className="totals-row">
@@ -103,7 +103,7 @@ const App: React.FC = () => {
               </ul>
             )}
             <div className="totals-row totals-row-strong">
-              <span>Total:</span>
+              <span>Total Amount:</span>
               <span>{formatMoney(summary.totalPence)}</span>
             </div>
           </div>

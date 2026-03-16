@@ -7,7 +7,7 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #f5f7fb;
+  background: #f3f4f6;
   color: #1f2933;
 }
 
@@ -23,8 +23,8 @@ body {
 
 .app-main {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 2rem;
   padding: 1.5rem 2rem 2.5rem;
   max-width: 1000px;
   margin: 0 auto;
@@ -35,6 +35,15 @@ body {
   border-radius: 0.75rem;
   padding: 1.25rem 1.5rem 1.75rem;
   box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.panel-left {
+  width: 100%;
+  max-width: 280px;
+}
+
+.panel-right {
+  flex: 1;
 }
 
 .panel h2 {
@@ -114,6 +123,17 @@ body {
     box-shadow 0.15s ease;
 }
 
+.btn-add {
+  min-width: 64px;
+  justify-content: center;
+  background: #9ca3af;
+  color: #ffffff;
+}
+
+.btn-add:hover {
+  background: #3b82f6;
+}
+
 .btn-primary {
   background: #2563eb;
   color: white;
@@ -128,13 +148,13 @@ body {
 .btn-icon {
   width: 32px;
   height: 32px;
-  background: #f3f4f6;
-  color: #111827;
-  border-radius: 0.5rem;
+  background: #3b82f6;
+  color: #ffffff;
+  border-radius: 0.35rem;
 }
 
 .btn-icon:hover {
-  background: #e5e7eb;
+  background: #2563eb;
 }
 
 .totals {
@@ -182,6 +202,7 @@ body {
 @media (max-width: 640px) {
   .app-main {
     padding: 1rem;
+    grid-template-columns: 1fr;
   }
 }
 
