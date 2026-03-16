@@ -78,18 +78,20 @@ const App: React.FC = () => {
                             −
                           </button>
                         </div>
-                        <div className="basket-row-line">
-                          Item price {formatMoney(product.pricePence)} ×{" "}
-                          {quantity} = {formatMoney(lineSubtotalPence)}
+                      </div>
+                    </div>
+                    <div className="basket-row-details">
+                      <div className="basket-row-line">
+                        Item price {formatMoney(product.pricePence)} ×{" "}
+                        {quantity} = {formatMoney(lineSubtotalPence)}
+                      </div>
+                      {savingsPence > 0 && (
+                        <div className="basket-row-line savings">
+                          Savings {formatMoney(savingsPence)}
                         </div>
-                        {savingsPence > 0 && (
-                          <div className="basket-row-line savings">
-                            Savings {formatMoney(savingsPence)}
-                          </div>
-                        )}
-                        <div className="basket-row-line">
-                          Item cost {formatMoney(lineTotalPence)}
-                        </div>
+                      )}
+                      <div className="basket-row-line">
+                        Item cost {formatMoney(lineTotalPence)}
                       </div>
                     </div>
                   </li>
