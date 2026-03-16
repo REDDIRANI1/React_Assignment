@@ -1,8 +1,9 @@
 [build]
-  command = "cd shopping-app-ui && npm install && npm run build"
-  publish = "shopping-app-ui/build"
+base = "React_Assignment/shopping-app-ui"
+command = "npm run build"
+publish = "build"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/*"
+to = "/index.html"
+status = 200
