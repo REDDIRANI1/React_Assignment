@@ -1,6 +1,7 @@
 [build]
-command = "cd React_Assignment/shopping-app-ui && npm install && npm run build"
-publish = "React_Assignment/shopping-app-ui/build"
+base = "React_Assignment/shopping-app-ui"
+command = "npm run build"
+publish = "build"
 
 [[redirects]]
 from = "/*"
