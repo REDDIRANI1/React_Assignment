@@ -1,4 +1,3 @@
-# Netlify root config: build React app in shopping-app-ui and publish its build output
 [build]
   command = "cd shopping-app-ui && npm install && npm run build"
   publish = "shopping-app-ui/build"

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *,
 *::before,
 *::after {
@@ -71,8 +75,13 @@ body {
   font-weight: 600;
 }
 
-.list-row-price {
-  margin-top: 0.15rem;
+.list-row-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.list-row-price-main {
   font-size: 0.9rem;
   color: #4b5563;
 }
@@ -89,14 +98,14 @@ body {
 }
 
 .basket-row-main {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto 200px; /* name | price | actions */
+  align-items: flex-start;
+  column-gap: 1.25rem;
 }
 
-.basket-row-header {
+.basket-col-name {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -104,8 +113,18 @@ body {
   font-weight: 600;
 }
 
+.basket-col-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .basket-row-price-main {
   font-weight: 600;
+}
+
+.basket-col-actions {
+  text-align: right;
 }
 
 .basket-row-subtitle {
@@ -114,30 +133,9 @@ body {
   color: #4b5563;
 }
 
-.basket-row-meta {
-  margin-top: 0.2rem;
+.basket-row-line {
+  margin-top: 0.15rem;
   font-size: 0.85rem;
-}
-
-.basket-row-meta-savings {
-  color: #b91c1c;
-}
-
-.basket-row-meta-savings .savings-label {
-  margin-right: 0.35rem;
-  font-weight: 500;
-}
-
-.basket-row-meta-savings .savings-value {
-  font-weight: 500;
-}
-
-.basket-row-meta-itemcost {
-  color: #374151;
-}
-
-.basket-row-meta-itemcost .itemcost-label {
-  margin-right: 0.35rem;
 }
 
 .basket-row-qty {
