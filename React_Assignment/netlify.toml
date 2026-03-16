@@ -1,5 +1,5 @@
 [build]
-base = "React_Assignment/shopping-app-ui"
+base = "React_Assignment/React_Assignment/shopping-app-ui"
 command = "npm run build"
 publish = "build"
 
