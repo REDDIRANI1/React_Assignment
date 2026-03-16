@@ -1,0 +1,10 @@
+# App lives in shopping-app-ui/; repo root has no package.json
+[build]
+  base = "shopping-app-ui"
+  command = "npm run build"
+  publish = "build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
