@@ -16,9 +16,6 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
-      <header className="app-header">
-        <h1>Shopping Basket</h1>
-      </header>
       <main className="app-main">
         <section className="panel panel-left">
           <h2>Products</h2>

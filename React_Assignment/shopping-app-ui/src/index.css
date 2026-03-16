@@ -16,9 +16,7 @@ body {
 }
 
 .app-header {
-  padding: 1.5rem 2rem;
-  background: #111827;
-  color: white;
+  display: none;
 }
 
 .app-main {
