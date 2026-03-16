@@ -104,6 +104,13 @@ body {
   color: #4b5563;
 }
 
+.basket-row-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.15rem;
+  font-size: 0.85rem;
+}
+
 .basket-row-qty {
   display: inline-flex;
   align-items: center;

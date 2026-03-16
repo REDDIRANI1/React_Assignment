@@ -44,35 +44,54 @@ const App: React.FC = () => {
             <p className="muted">Your basket is empty.</p>
           ) : (
             <ul className="basket-list">
-              {basketItems.map(({ product, quantity }) => (
-                <li key={product.id} className="basket-row">
-                  <div className="basket-row-main">
-                    <div>
-                      <div className="basket-row-title">{product.name}</div>
-                      <div className="basket-row-subtitle">
-                        Item price {formatMoney(product.pricePence)} ×{" "}
-                        {quantity} ={" "}
-                        {formatMoney(product.pricePence * quantity)}
+              {basketItems.map(
+                ({
+                  product,
+                  quantity,
+                  lineSubtotalPence,
+                  savingsPence,
+                  lineTotalPence,
+                }) => (
+                  <li key={product.id} className="basket-row">
+                    <div className="basket-row-main">
+                      <div>
+                        <div className="basket-row-title">{product.name}</div>
+                        <div className="basket-row-subtitle">
+                          Item price {formatMoney(product.pricePence)} ×{" "}
+                          {quantity} = {formatMoney(lineSubtotalPence)}
+                        </div>
+                        {savingsPence > 0 && (
+                          <div className="basket-row-meta">
+                            <span>Savings</span>
+                            <span className="savings">
+                              {formatMoney(savingsPence)}
+                            </span>
+                          </div>
+                        )}
+                        <div className="basket-row-meta">
+                          <span>Item cost</span>
+                          <span>{formatMoney(lineTotalPence)}</span>
+                        </div>
+                      </div>
+                      <div className="basket-row-qty">
+                        <button
+                          className="btn btn-icon"
+                          onClick={() => dispatch(addItem(product.id))}
+                        >
+                          +
+                        </button>
+                        <span>{quantity}</span>
+                        <button
+                          className="btn btn-icon"
+                          onClick={() => dispatch(removeItem(product.id))}
+                        >
+                          −
+                        </button>
                       </div>
                     </div>
-                    <div className="basket-row-qty">
-                      <button
-                        className="btn btn-icon"
-                        onClick={() => dispatch(addItem(product.id))}
-                      >
-                        +
-                      </button>
-                      <span>{quantity}</span>
-                      <button
-                        className="btn btn-icon"
-                        onClick={() => dispatch(removeItem(product.id))}
-                      >
-                        −
-                      </button>
-                    </div>
-                  </div>
-                </li>
-              ))}
+                  </li>
+                )
+              )}
             </ul>
           )}
 
