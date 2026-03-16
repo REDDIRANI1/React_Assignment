@@ -1,4 +1,4 @@
-@tailwind base;
+/* Tailwind: only components + utilities so Preflight doesn't override our layout */
 @tailwind components;
 @tailwind utilities;
 

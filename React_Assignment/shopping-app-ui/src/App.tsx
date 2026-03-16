@@ -22,18 +22,18 @@ const App: React.FC = () => {
           <ul className="list">
             {PRODUCTS.map((product) => (
               <li key={product.id} className="list-row">
-                <div>
-                  <div className="list-row-title">{product.name}</div>
-                  <div className="list-row-price">
+                <span className="list-row-title">{product.name}</span>
+                <div className="list-row-right">
+                  <span className="list-row-price-main">
                     {formatMoney(product.pricePence)}
-                  </div>
+                  </span>
+                  <button
+                    className="btn btn-add"
+                    onClick={() => dispatch(addItem(product.id))}
+                  >
+                    Add
+                  </button>
                 </div>
-                <button
-                  className="btn btn-add"
-                  onClick={() => dispatch(addItem(product.id))}
-                >
-                  Add
-                </button>
               </li>
             ))}
           </ul>
@@ -54,48 +54,42 @@ const App: React.FC = () => {
                 }) => (
                   <li key={product.id} className="basket-row">
                     <div className="basket-row-main">
-                      <div>
-                        <div className="basket-row-header">
-                          <span className="basket-row-title">
-                            {product.name}
-                          </span>
-                          <span className="basket-row-price-main">
-                            {formatMoney(product.pricePence)}
-                          </span>
+                      <div className="basket-col-name">
+                        <span className="basket-row-title">{product.name}</span>
+                      </div>
+                      <div className="basket-col-price">
+                        <span className="basket-row-price-main">
+                          {formatMoney(product.pricePence)}
+                        </span>
+                      </div>
+                      <div className="basket-col-actions">
+                        <div className="basket-row-qty">
+                          <button
+                            className="btn btn-icon"
+                            onClick={() => dispatch(addItem(product.id))}
+                          >
+                            +
+                          </button>
+                          <span>{quantity}</span>
+                          <button
+                            className="btn btn-icon"
+                            onClick={() => dispatch(removeItem(product.id))}
+                          >
+                            −
+                          </button>
                         </div>
-                        <div className="basket-row-subtitle">
+                        <div className="basket-row-line">
                           Item price {formatMoney(product.pricePence)} ×{" "}
                           {quantity} = {formatMoney(lineSubtotalPence)}
                         </div>
                         {savingsPence > 0 && (
-                          <div className="basket-row-meta basket-row-meta-savings">
-                            <span className="savings-label">Savings</span>
-                            <span className="savings-value">
-                              {formatMoney(savingsPence)}
-                            </span>
+                          <div className="basket-row-line savings">
+                            Savings {formatMoney(savingsPence)}
                           </div>
                         )}
-                        <div className="basket-row-meta basket-row-meta-itemcost">
-                          <span className="itemcost-label">Item cost</span>
-                          <span className="itemcost-value">
-                            {formatMoney(lineTotalPence)}
-                          </span>
+                        <div className="basket-row-line">
+                          Item cost {formatMoney(lineTotalPence)}
                         </div>
-                      </div>
-                      <div className="basket-row-qty">
-                        <button
-                          className="btn btn-icon"
-                          onClick={() => dispatch(addItem(product.id))}
-                        >
-                          +
-                        </button>
-                        <span>{quantity}</span>
-                        <button
-                          className="btn btn-icon"
-                          onClick={() => dispatch(removeItem(product.id))}
-                        >
-                          −
-                        </button>
                       </div>
                     </div>
                   </li>
