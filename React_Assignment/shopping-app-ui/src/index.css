@@ -94,7 +94,17 @@ body {
   gap: 1rem;
 }
 
+.basket-row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .basket-row-title {
+  font-weight: 600;
+}
+
+.basket-row-price-main {
   font-weight: 600;
 }
 

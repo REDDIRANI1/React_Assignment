@@ -55,7 +55,14 @@ const App: React.FC = () => {
                   <li key={product.id} className="basket-row">
                     <div className="basket-row-main">
                       <div>
-                        <div className="basket-row-title">{product.name}</div>
+                        <div className="basket-row-header">
+                          <span className="basket-row-title">
+                            {product.name}
+                          </span>
+                          <span className="basket-row-price-main">
+                            {formatMoney(product.pricePence)}
+                          </span>
+                        </div>
                         <div className="basket-row-subtitle">
                           Item price {formatMoney(product.pricePence)} ×{" "}
                           {quantity} = {formatMoney(lineSubtotalPence)}
